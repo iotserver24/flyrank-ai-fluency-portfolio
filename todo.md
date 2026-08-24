@@ -20,7 +20,8 @@
 - [x] Run and publish a Week 7 site hardening audit with metadata checks, repository-link checks, fix-now versus known-limitation triage, and a disclosed missing human hardening review.
 - [ ] Publish a technically sourced Week 4 workflow-versus-agent and MCP explainer draft while keeping the required participant MCP-tool screenshots unclaimed.
 - [ ] Publish a technically sourced DNS walkthrough for the live GitHub Pages portfolio while preserving the outstanding participant-only LinkedIn/CV, booking-link, and future FlyRank badge requirements.
+- [ ] Publish a Week 3 image-curation strategy that maps real work captures and makes explicit which personal-photo, generated-asset, and rejection evidence must be provided by the participant.
 - [x] Publish a concrete Week 8 next-case update guide and named next technical artifact while preserving the required real reminder and personal Claude Project context as participant-only evidence.
-- [ ] Publish a Week 8 deliverables index and capstone demo-script review draft with documented setup, architecture, tests, limits, and AI-assistance disclosures.
+- [x] Publish a Week 8 deliverables index and capstone demo-script review draft with documented setup, architecture, tests, limits, and AI-assistance disclosures.
 - [ ] Obtain an authentic 3–5 minute live narrated demo, showcase/build-in-public post, hours log, and final human review required by the final Week 8 checkpoint.
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.

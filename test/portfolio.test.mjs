@@ -16,6 +16,7 @@ const dnsWalkthrough = await readFile(new URL("../docs/week-05-dns-walkthrough-r
 const nextCasePlan = await readFile(new URL("../docs/week-08-next-case-plan-review-draft.md", import.meta.url), "utf8");
 const deliverablesIndex = await readFile(new URL("../docs/week-08-deliverables-index.md", import.meta.url), "utf8");
 const demoScript = await readFile(new URL("../docs/week-08-capstone-demo-script-review-draft.md", import.meta.url), "utf8");
+const imageCurationStrategy = await readFile(new URL("../docs/week-03-image-curation-strategy-review-draft.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -116,4 +117,11 @@ test("Week 8 package index and demo script keep real evidence and video boundari
   assert.match(demoScript, /Record-it-yourself boundary/);
   assert.match(demoScript, /integer microcents/i);
   assert.match(demoScript, /no real Stripe Checkout Session/i);
+});
+
+test("Week 3 image strategy prioritizes real evidence and does not fabricate a photo or image set", () => {
+  assert.match(imageCurationStrategy, /not a completed image set/i);
+  assert.match(imageCurationStrategy, /real terminal\/API capture/i);
+  assert.match(imageCurationStrategy, /do not substitute an AI portrait/i);
+  assert.match(imageCurationStrategy, /genuine one-to-two sentence rejection note/i);
 });
