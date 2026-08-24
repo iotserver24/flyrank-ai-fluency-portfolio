@@ -17,6 +17,7 @@ const nextCasePlan = await readFile(new URL("../docs/week-08-next-case-plan-revi
 const deliverablesIndex = await readFile(new URL("../docs/week-08-deliverables-index.md", import.meta.url), "utf8");
 const demoScript = await readFile(new URL("../docs/week-08-capstone-demo-script-review-draft.md", import.meta.url), "utf8");
 const imageCurationStrategy = await readFile(new URL("../docs/week-03-image-curation-strategy-review-draft.md", import.meta.url), "utf8");
+const retrospectiveDraft = await readFile(new URL("../docs/week-08-retrospective-review-draft.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -124,4 +125,12 @@ test("Week 3 image strategy prioritizes real evidence and does not fabricate a p
   assert.match(imageCurationStrategy, /real terminal\/API capture/i);
   assert.match(imageCurationStrategy, /do not substitute an AI portrait/i);
   assert.match(imageCurationStrategy, /genuine one-to-two sentence rejection note/i);
+});
+
+test("Week 8 retrospective keeps public evidence separate from participant attestation and final review", () => {
+  assert.match(retrospectiveDraft, /Required personal revision/);
+  assert.match(retrospectiveDraft, /does not claim that the portal has accepted the work/i);
+  assert.match(retrospectiveDraft, /Three transferable lessons/);
+  assert.match(retrospectiveDraft, /genuine hours record/i);
+  assert.match(retrospectiveDraft, /human final-review checkpoint/i);
 });
