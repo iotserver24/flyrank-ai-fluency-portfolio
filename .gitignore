@@ -3,6 +3,7 @@ node_modules/
 .output/
 dist/
 dist
+.node-red/
 coverage/
 .env
 .env.*

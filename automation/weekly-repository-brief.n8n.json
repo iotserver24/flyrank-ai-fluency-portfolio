@@ -1,0 +1,125 @@
+{
+  "name": "Weekly Repository Brief — GitHub Sources",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "weekly-repository-brief",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "1d6d0b6e-fb04-4b33-a0df-c9ac47e77133",
+      "name": "Receive source request",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-540, 260],
+      "webhookId": "e9e1ab4a-5237-4f78-9c28-404cfcd4a707"
+    },
+    {
+      "parameters": {
+        "url": "=https://raw.githubusercontent.com/{{$json.body.owner}}/{{$json.body.repo}}/main/README.md",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "flyrank-weekly-workflow/1.0"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "13984176-e23f-4911-8eb9-e319d2df8c16",
+      "name": "Gather public repository README",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-280, 260]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "111c52c3-02ee-4d4e-9e32-5ecc6c716795",
+              "name": "source_label",
+              "value": "=Public README supplied by raw.githubusercontent.com for the requested repository",
+              "type": "string"
+            },
+            {
+              "id": "d066d60a-8e9e-40f5-b4ae-dc7e1bb38151",
+              "name": "human_review_required",
+              "value": "=Confirm that this commit context is relevant before using it in a portfolio update; this workflow does not assess quality, authorship, or business impact.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "81c5fe68-2376-4de3-b1d9-a36ca6c84948",
+      "name": "Label the evidence boundary",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [-40, 260]
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "id": "d3590902-63ec-4236-962e-f693e4d58e31",
+      "name": "Return review packet",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.2,
+      "position": [220, 260]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Receive source request": {
+      "main": [
+        [
+          {
+            "node": "Gather public repository README",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gather public repository README": {
+      "main": [
+        [
+          {
+            "node": "Label the evidence boundary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Label the evidence boundary": {
+      "main": [
+        [
+          {
+            "node": "Return review packet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4b3b10a9-df05-4f80-98c9-c6d566a17868",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

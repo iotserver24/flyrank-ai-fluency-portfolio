@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 
 const page = await readFile(new URL("../pages/index.vue", import.meta.url), "utf8");
 const config = await readFile(new URL("../nuxt.config.ts", import.meta.url), "utf8");
+const contentMap = await readFile(new URL("../docs/week-03-content-map.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -26,4 +27,11 @@ test("portfolio includes an accessible interactive project filter and deployment
   assert.match(page, /aria-label="Filter selected work"/);
   assert.match(page, /activeFilter/);
   assert.match(config, /github_pages/);
+});
+
+test("Week 3 content map preserves a concise claim, CTA ladder, and explicit proof gaps", () => {
+  assert.match(contentMap, /I build small, testable systems that make AI work accountable/);
+  assert.match(contentMap, /Visitor action and CTA ladder/);
+  assert.match(contentMap, /Still to gather before making broader claims/);
+  assert.match(contentMap, /Cannot be fabricated/);
 });

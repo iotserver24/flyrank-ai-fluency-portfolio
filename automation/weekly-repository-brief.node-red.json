@@ -1,0 +1,113 @@
+[
+  {
+    "id": "b2ec47b8e770d42a",
+    "type": "tab",
+    "label": "Weekly Repository Brief",
+    "disabled": false,
+    "info": "No-code source-grounded workflow: webhook → URL handoff → GitHub HTTP gather → reviewer boundary → response."
+  },
+  {
+    "id": "7109d8f1027a2e09",
+    "type": "http in",
+    "z": "b2ec47b8e770d42a",
+    "name": "Receive source request",
+    "url": "/weekly-repository-brief",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 150,
+    "y": 200,
+    "wires": [["7d7d503ea4b0d2e9"]]
+  },
+  {
+    "id": "7d7d503ea4b0d2e9",
+    "type": "change",
+    "z": "b2ec47b8e770d42a",
+    "name": "Build public README URL",
+    "rules": [
+      {
+        "t": "set",
+        "p": "url",
+        "pt": "msg",
+        "to": "\"https://raw.githubusercontent.com/\" & payload.owner & \"/\" & payload.repo & \"/main/README.md\"",
+        "tot": "jsonata"
+      },
+      {
+        "t": "set",
+        "p": "headers.Accept",
+        "pt": "msg",
+        "to": "application/vnd.github+json",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "headers.User-Agent",
+        "pt": "msg",
+        "to": "flyrank-weekly-workflow/1.0",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 390,
+    "y": 200,
+    "wires": [["a71e26c7d4bf95fb"]]
+  },
+  {
+    "id": "a71e26c7d4bf95fb",
+    "type": "http request",
+    "z": "b2ec47b8e770d42a",
+    "name": "Gather public repository README",
+    "method": "use",
+    "ret": "obj",
+    "paytoqs": "ignore",
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 650,
+    "y": 200,
+    "wires": [["aec3a4f7d1c65113"]]
+  },
+  {
+    "id": "aec3a4f7d1c65113",
+    "type": "change",
+    "z": "b2ec47b8e770d42a",
+    "name": "Attach human-review boundary",
+    "rules": [
+      {
+        "t": "set",
+        "p": "headers.X-Human-Review-Required",
+        "pt": "msg",
+        "to": "Confirm relevance and evidence before reusing any commit context; this flow makes no quality, authorship, or impact judgment.",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 930,
+    "y": 200,
+    "wires": [["78a4ed3e1d368bcb"]]
+  },
+  {
+    "id": "78a4ed3e1d368bcb",
+    "type": "http response",
+    "z": "b2ec47b8e770d42a",
+    "name": "Return review packet",
+    "statusCode": "",
+    "headers": {},
+    "x": 1190,
+    "y": 200,
+    "wires": []
+  }
+]

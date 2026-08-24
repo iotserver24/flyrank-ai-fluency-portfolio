@@ -8,10 +8,13 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "test": "node --test test/*.test.mjs",
-    "check": "nuxi typecheck"
+    "check": "nuxi typecheck",
+    "workflow:local": "node-red --userDir .node-red",
+    "workflow:flow": "automation/weekly-repository-brief.node-red.json"
   },
   "devDependencies": {
     "@types/node": "22.13.0",
+    "node-red": "4.0.9",
     "nuxt": "3.16.2",
     "typescript": "5.8.3",
     "vue": "3.5.13",

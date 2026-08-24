@@ -7,4 +7,8 @@
 - [x] Install dependencies and run local tests, type checks, and a production static build.
 - [x] Commit and push the site source to the confirmed public repository.
 - [ ] Enable GitHub Pages and verify the public URL after explicit publication confirmation.
+- [ ] Build an importable visual no-code research-note workflow with at least three named handoffs.
+- [ ] Run and document five real source-note inputs, including timing, failure points, and required human review.
+- [ ] Validate and publish the Week 4 workflow artifact without claiming a private Claude, NotebookLM, or external-account configuration.
+- [x] Create and publish the Week 3 portfolio content map with a one-line claim, ordered case placement, CTA ladder, and proof-gap list.
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.
