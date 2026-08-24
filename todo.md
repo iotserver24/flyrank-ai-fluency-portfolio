@@ -12,4 +12,5 @@
 - [ ] Validate and publish the Week 4 workflow artifact without claiming a private Claude, NotebookLM, or external-account configuration.
 - [x] Create and publish the Week 3 portfolio content map with a one-line claim, ordered case placement, CTA ladder, and proof-gap list.
 - [ ] Publish the Week 4 three-option stack rationale with free-hosting trade-offs, an honest backend decision, and maintainability review.
+- [ ] Publish a Week 5 plain-words explanation review draft for a real Nuxt static-build and deployment component, without claiming participant understanding or authorship attestation.
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.

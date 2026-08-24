@@ -6,6 +6,7 @@ const page = await readFile(new URL("../pages/index.vue", import.meta.url), "utf
 const config = await readFile(new URL("../nuxt.config.ts", import.meta.url), "utf8");
 const contentMap = await readFile(new URL("../docs/week-03-content-map.md", import.meta.url), "utf8");
 const stackRationale = await readFile(new URL("../docs/week-04-stack-rationale-review-draft.md", import.meta.url), "utf8");
+const deploymentExplanation = await readFile(new URL("../docs/week-05-nuxt-deployment-explanation-review-draft.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -43,4 +44,11 @@ test("Week 4 stack analysis retains three options and a participant-attestation 
   assert.match(stackRationale, /Nuxt 3 with a server and database/);
   assert.match(stackRationale, /Attestation boundary/);
   assert.match(stackRationale, /not yet/i);
+});
+
+test("Week 5 explanation refers to the real static build and retains its review boundary", () => {
+  assert.match(deploymentExplanation, /pnpm run generate/);
+  assert.match(deploymentExplanation, /\.github\/workflows\/deploy\.yml/);
+  assert.match(deploymentExplanation, /Participant review required/);
+  assert.match(deploymentExplanation, /not.*the same as a verified working public portfolio URL/i);
 });
