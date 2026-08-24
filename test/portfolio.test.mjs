@@ -13,6 +13,7 @@ const hardeningAudit = await readFile(new URL("../docs/week-07-hardening-audit.m
 const nuxtConfig = await readFile(new URL("../nuxt.config.ts", import.meta.url), "utf8");
 const agentMcpExplainer = await readFile(new URL("../docs/week-04-agent-mcp-explainer-review-draft.md", import.meta.url), "utf8");
 const dnsWalkthrough = await readFile(new URL("../docs/week-05-dns-walkthrough-review-draft.md", import.meta.url), "utf8");
+const nextCasePlan = await readFile(new URL("../docs/week-08-next-case-plan-review-draft.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -98,4 +99,11 @@ test("Week 5 DNS walkthrough explains resolution and CNAMEs while preserving per
   assert.match(dnsWalkthrough, /iotserver24\.github\.io\/flyrank-ai-fluency-portfolio/);
   assert.match(dnsWalkthrough, /Remaining personal launch steps/);
   assert.match(dnsWalkthrough, /official FlyRank completion badge/i);
+});
+
+test("Week 8 plan names a concrete next case and preserves real reminder and Claude Project requirements", () => {
+  assert.match(nextCasePlan, /PostgreSQL migration and operational-readiness case study/i);
+  assert.match(nextCasePlan, /Problem[\s\S]*What I did[\s\S]*What came of it/);
+  assert.match(nextCasePlan, /Create a genuine calendar\/reminder entry/i);
+  assert.match(nextCasePlan, /participant-owned Claude Project/i);
 });
