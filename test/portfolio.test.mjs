@@ -18,6 +18,9 @@ const deliverablesIndex = await readFile(new URL("../docs/week-08-deliverables-i
 const demoScript = await readFile(new URL("../docs/week-08-capstone-demo-script-review-draft.md", import.meta.url), "utf8");
 const imageCurationStrategy = await readFile(new URL("../docs/week-03-image-curation-strategy-review-draft.md", import.meta.url), "utf8");
 const retrospectiveDraft = await readFile(new URL("../docs/week-08-retrospective-review-draft.md", import.meta.url), "utf8");
+const workflowGraph = await readFile(new URL("../automation/weekly-repository-brief.node-red.json", import.meta.url), "utf8");
+const workflowHarness = await readFile(new URL("../scripts/run-local-workflow-source-packets.mjs", import.meta.url), "utf8");
+const workflowRunSummary = JSON.parse(await readFile(new URL("../evidence/automation-runs-success/summary.json", import.meta.url), "utf8"));
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -133,4 +136,22 @@ test("Week 8 retrospective keeps public evidence separate from participant attes
   assert.match(retrospectiveDraft, /Three transferable lessons/);
   assert.match(retrospectiveDraft, /genuine hours record/i);
   assert.match(retrospectiveDraft, /human final-review checkpoint/i);
+});
+
+test("Week 4 visual workflow uses a public-source packet with a clear no-code human-review boundary", () => {
+  assert.match(workflowGraph, /Format supplied public source packet/);
+  assert.match(workflowGraph, /humanReviewRequired/);
+  assert.match(workflowHarness, /sourceTargets/);
+  assert.match(workflowHarness, /workflowStatus/);
+  assert.match(workflowHarness, /sourceBoundary/);
+});
+
+test("Week 4 source-packet flow has five captured public-source and visual-workflow successes", () => {
+  assert.equal(workflowRunSummary.results.length, 5);
+  for (const result of workflowRunSummary.results) {
+    assert.equal(result.sourceStatus, 200);
+    assert.equal(result.workflowStatus, 200);
+    assert.equal(result.packet.humanReviewRequired, true);
+    assert.match(result.packet.notice, /does not judge quality/i);
+  }
 });

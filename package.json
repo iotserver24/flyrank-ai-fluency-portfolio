@@ -11,8 +11,9 @@
     "check": "nuxi typecheck",
     "agent:scout": "node scripts/portfolio-evidence-scout.mjs",
     "site:audit": "node scripts/site-hardening-audit.mjs",
-    "workflow:local": "node-red --userDir .node-red",
-    "workflow:flow": "automation/weekly-repository-brief.node-red.json"
+    "workflow:local": "mkdir -p /tmp/flyrank-node-red && cp automation/weekly-repository-brief.node-red.json /tmp/flyrank-node-red/flows.json && node-red --userDir /tmp/flyrank-node-red --port 1880",
+    "workflow:flow": "automation/weekly-repository-brief.node-red.json",
+    "workflow:run": "node scripts/run-local-workflow-source-packets.mjs"
   },
   "devDependencies": {
     "@types/node": "22.13.0",

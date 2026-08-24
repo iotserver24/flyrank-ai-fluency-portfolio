@@ -1,0 +1,14 @@
+{
+  "sourceName": "Usage Metering & Billing Engine",
+  "sourceUrl": "https://raw.githubusercontent.com/iotserver24/flyrank-capstone-metering-billing/main/README.md",
+  "sourceStatus": 200,
+  "workflowStatus": 200,
+  "elapsedMs": 449,
+  "packet": {
+    "sourceName": "Usage Metering & Billing Engine",
+    "sourceUrl": "https://raw.githubusercontent.com/iotserver24/flyrank-capstone-metering-billing/main/README.md",
+    "excerpt": "# FlyRank Capstone — Usage Metering & Billing Engine\n\nThis repository implements a small, tenant-scoped backend service for **usage metering, quota enforcement, and billing-state synchronization**. It records simulated API and AI-token usage transactionally, calculates money in integer microcents, protects tenant reads and writes with a local demo tenant key, verifies signed Stripe webhook payloads before processing them, and runs reconciliation through a retried Inngest function.\n\nThe implementation is deliberately narrow. It is a locally reproducible capstone artifact, not a hosted billing p",
+    "humanReviewRequired": true,
+    "notice": "Check source relevance and evidence before reuse. This workflow does not judge quality, authorship, or impact."
+  }
+}

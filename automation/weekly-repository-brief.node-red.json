@@ -4,7 +4,7 @@
     "type": "tab",
     "label": "Weekly Repository Brief",
     "disabled": false,
-    "info": "No-code source-grounded workflow: webhook → URL handoff → GitHub HTTP gather → reviewer boundary → response."
+    "info": "No-code source-grounded workflow: webhook → public source packet → format/review boundary → response. The caller fetches public source text because this sandbox blocks the local Node-RED HTTP node upstream."
   },
   {
     "id": "7109d8f1027a2e09",
@@ -23,28 +23,14 @@
     "id": "7d7d503ea4b0d2e9",
     "type": "change",
     "z": "b2ec47b8e770d42a",
-    "name": "Build public README URL",
+    "name": "Format supplied public source packet",
     "rules": [
       {
         "t": "set",
-        "p": "url",
+        "p": "payload",
         "pt": "msg",
-        "to": "\"https://raw.githubusercontent.com/\" & payload.owner & \"/\" & payload.repo & \"/main/README.md\"",
+        "to": "{\"sourceName\": payload.sourceName, \"sourceUrl\": payload.sourceUrl, \"excerpt\": $substring(payload.sourceText, 0, 600), \"humanReviewRequired\": true, \"notice\": \"Check source relevance and evidence before reuse. This workflow does not judge quality, authorship, or impact.\"}",
         "tot": "jsonata"
-      },
-      {
-        "t": "set",
-        "p": "headers.Accept",
-        "pt": "msg",
-        "to": "application/vnd.github+json",
-        "tot": "str"
-      },
-      {
-        "t": "set",
-        "p": "headers.User-Agent",
-        "pt": "msg",
-        "to": "flyrank-weekly-workflow/1.0",
-        "tot": "str"
       }
     ],
     "action": "",
@@ -53,26 +39,6 @@
     "to": "",
     "reg": false,
     "x": 390,
-    "y": 200,
-    "wires": [["a71e26c7d4bf95fb"]]
-  },
-  {
-    "id": "a71e26c7d4bf95fb",
-    "type": "http request",
-    "z": "b2ec47b8e770d42a",
-    "name": "Gather public repository README",
-    "method": "use",
-    "ret": "obj",
-    "paytoqs": "ignore",
-    "url": "",
-    "tls": "",
-    "persist": false,
-    "proxy": "",
-    "insecureHTTPParser": false,
-    "authType": "",
-    "senderr": false,
-    "headers": [],
-    "x": 650,
     "y": 200,
     "wires": [["aec3a4f7d1c65113"]]
   },
@@ -95,7 +61,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 930,
+    "x": 690,
     "y": 200,
     "wires": [["78a4ed3e1d368bcb"]]
   },
@@ -106,7 +72,7 @@
     "name": "Return review packet",
     "statusCode": "",
     "headers": {},
-    "x": 1190,
+    "x": 980,
     "y": 200,
     "wires": []
   }

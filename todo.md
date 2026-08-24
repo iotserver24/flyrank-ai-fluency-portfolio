@@ -7,9 +7,9 @@
 - [x] Install dependencies and run local tests, type checks, and a production static build.
 - [x] Commit and push the site source to the confirmed public repository.
 - [x] Enable GitHub Pages and verify the public URL after explicit publication confirmation.
-- [ ] Build an importable visual no-code research-note workflow with at least three named handoffs.
-- [ ] Run and document five real source-note inputs, including timing, failure points, and required human review.
-- [ ] Validate and publish the Week 4 workflow artifact without claiming a private Claude, NotebookLM, or external-account configuration.
+- [x] Build an importable visual no-code research-note workflow with at least three named handoffs.
+- [x] Run and document five real source-note inputs, including timing, failure points, and required human review.
+- [x] Validate and publish the Week 4 workflow artifact without claiming a private Claude, NotebookLM, or external-account configuration.
 - [x] Create and publish the Week 3 portfolio content map with a one-line claim, ordered case placement, CTA ladder, and proof-gap list.
 - [ ] Publish the Week 4 three-option stack rationale with free-hosting trade-offs, an honest backend decision, and maintainability review.
 - [ ] Publish a Week 5 plain-words explanation review draft for a real Nuxt static-build and deployment component, without claiming participant understanding or authorship attestation.
@@ -24,5 +24,5 @@
 - [x] Publish a concrete Week 8 next-case update guide and named next technical artifact while preserving the required real reminder and personal Claude Project context as participant-only evidence.
 - [x] Publish a Week 8 deliverables index and capstone demo-script review draft with documented setup, architecture, tests, limits, and AI-assistance disclosures.
 - [ ] Obtain an authentic 3–5 minute live narrated demo, showcase/build-in-public post, hours log, and final human review required by the final Week 8 checkpoint.
-- [ ] Publish an evidence-based Week 8 retrospective review draft that the participant must revise into an authentic first-person reflection before final review.
+- [x] Publish an evidence-based Week 8 retrospective review draft that the participant must revise into an authentic first-person reflection before final review.
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.

@@ -1,0 +1,14 @@
+{
+  "sourceName": "Decision Desk Workflow",
+  "sourceUrl": "https://raw.githubusercontent.com/iotserver24/flyrank-be09-decision-flow/main/README.md",
+  "sourceStatus": 200,
+  "workflowStatus": 200,
+  "elapsedMs": 398,
+  "packet": {
+    "sourceName": "Decision Desk Workflow",
+    "sourceUrl": "https://raw.githubusercontent.com/iotserver24/flyrank-be09-decision-flow/main/README.md",
+    "excerpt": "# Decision Desk — FlyRank BE-09\n\nDecision Desk is a visual **YES/NO AI workflow editor** built for the FlyRank Backend AI Engineering assignment, “Build an AI Decision Flow with React Flow + Inngest.” The client is a React Flow canvas. The backend provides a typed, OpenAI-compatible decision adapter and an Inngest function endpoint. A deterministic demo executor is deliberately included so the repository remains runnable without inventing an API key or claiming external model results.\n\n> **Honest runtime status:** The included interface executes a labelled deterministic simulation when `OPENAI",
+    "humanReviewRequired": true,
+    "notice": "Check source relevance and evidence before reuse. This workflow does not judge quality, authorship, or impact."
+  }
+}

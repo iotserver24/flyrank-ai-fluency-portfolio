@@ -1,0 +1,14 @@
+{
+  "sourceName": "Background Report Job",
+  "sourceUrl": "https://raw.githubusercontent.com/iotserver24/flyrank-be-06-background-job/main/README.md",
+  "sourceStatus": 200,
+  "workflowStatus": 200,
+  "elapsedMs": 275,
+  "packet": {
+    "sourceName": "Background Report Job",
+    "sourceUrl": "https://raw.githubusercontent.com/iotserver24/flyrank-be-06-background-job/main/README.md",
+    "excerpt": "# BE-06 — Your first background job\n\nThis project is a small Express API that accepts a report request immediately, delegates the eight-second task to an Inngest workflow, and exposes a status endpoint for polling. It also registers a delayed hello function and an every-minute heartbeat cron function.\n\n> **Local verification status:** The API, Inngest Dev Server, completed report job, heartbeat runs, input validation, and controlled failure state were verified locally. The intentional `fail` run reached **Failed** after the configured retry lifecycle (`retries: 2`, up to three attempts). No ho",
+    "humanReviewRequired": true,
+    "notice": "Check source relevance and evidence before reuse. This workflow does not judge quality, authorship, or impact."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "sourceName": "Structured LLM Triage API",
+  "sourceUrl": "https://raw.githubusercontent.com/iotserver24/flyrank-be-07-llm/main/README.md",
+  "sourceStatus": 200,
+  "workflowStatus": 200,
+  "elapsedMs": 289,
+  "packet": {
+    "sourceName": "Structured LLM Triage API",
+    "sourceUrl": "https://raw.githubusercontent.com/iotserver24/flyrank-be-07-llm/main/README.md",
+    "excerpt": "# BE-07 — Support-message triage behind an API\n\nThis project adds one narrow, production-minded LLM feature to an Express API: `POST /triage` accepts a support message and returns a closed, validated JSON decision containing `category`, `urgency`, `confidence`, and a short `reason`. A non-programmer can run it locally in deterministic stub mode without a provider account; a provider-backed run uses the same code after three environment variables are supplied.\n\n## Quick start with zero model calls\n\n```bash\nnpm install\nLLM_STUB=1 LLM_ENABLED=true node src/server.js\n```\n\nIn another terminal:\n\n```",
+    "humanReviewRequired": true,
+    "notice": "Check source relevance and evidence before reuse. This workflow does not judge quality, authorship, or impact."
+  }
+}

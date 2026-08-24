@@ -1,0 +1,14 @@
+{
+  "sourceName": "SQL-to-PDF Reports",
+  "sourceUrl": "https://raw.githubusercontent.com/iotserver24/flyrank-be-08-pdf-reports/main/README.md",
+  "sourceStatus": 200,
+  "workflowStatus": 200,
+  "elapsedMs": 371,
+  "packet": {
+    "sourceName": "SQL-to-PDF Reports",
+    "sourceUrl": "https://raw.githubusercontent.com/iotserver24/flyrank-be-08-pdf-reports/main/README.md",
+    "excerpt": "# BE-08 — PDF report generator\n\nThis repository implements the FlyRank BE-08 **query → render → store → serve** pipeline in Node.js. It seeds 200 deterministic development orders into SQLite, aggregates them into a sales report, renders an eight-page A4 PDF with Playwright, stores the file on disk, and exposes it through a small Express API by link.\n\nThe project intentionally uses the assignment’s core synchronous request pattern. The first `POST /reports` took approximately **0.79 seconds** in this local run, which makes the wait observable without masking it as a background process.\n\n![First",
+    "humanReviewRequired": true,
+    "notice": "Check source relevance and evidence before reuse. This workflow does not judge quality, authorship, or impact."
+  }
+}
