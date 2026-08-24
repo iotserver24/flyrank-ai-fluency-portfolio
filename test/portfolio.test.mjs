@@ -7,6 +7,7 @@ const config = await readFile(new URL("../nuxt.config.ts", import.meta.url), "ut
 const contentMap = await readFile(new URL("../docs/week-03-content-map.md", import.meta.url), "utf8");
 const stackRationale = await readFile(new URL("../docs/week-04-stack-rationale-review-draft.md", import.meta.url), "utf8");
 const deploymentExplanation = await readFile(new URL("../docs/week-05-nuxt-deployment-explanation-review-draft.md", import.meta.url), "utf8");
+const agentDesign = await readFile(new URL("../docs/week-05-personal-agent-design-review-draft.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -51,4 +52,12 @@ test("Week 5 explanation refers to the real static build and retains its review 
   assert.match(deploymentExplanation, /\.github\/workflows\/deploy\.yml/);
   assert.match(deploymentExplanation, /Participant review required/);
   assert.match(deploymentExplanation, /not.*the same as a verified working public portfolio URL/i);
+});
+
+test("Week 5 personal-agent design keeps one narrow job, pre-build evals, and irreversible-action guardrails", () => {
+  assert.match(agentDesign, /One job/);
+  assert.match(agentDesign, /Evaluation cases defined before build/);
+  assert.match(agentDesign, /Unsafe requested action/);
+  assert.match(agentDesign, /no publish, submit, deployment, or social-post tool/i);
+  assert.match(agentDesign, /Participant review required/);
 });
