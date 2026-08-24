@@ -28,3 +28,6 @@
 - [x] Publish an evidence-based Week 8 retrospective review draft that the participant must revise into an authentic first-person reflection before final review.
 - [x] Publish an exact Week 8 manual-evidence and portal-recovery checklist with assignment links, current public sources, and participant-only blockers.
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.
+- [x] Create participant-ready capture scripts and evidence templates for the remaining real recordings, screenshots, phone tests, critique, hours, post, and final-review requirements.
+- [x] Create an exact per-assignment copy-and-paste submission packet that links only to real published artifacts and labels personal evidence fields as participant-completed only.
+- [ ] Validate and publish the new participant-ready template package without representing any blank template as completed evidence.

@@ -37,6 +37,8 @@ This index gathers the published artifacts that can be independently reviewed. I
 | Next-case plan | [Document](./week-08-next-case-plan-review-draft.md) | Real reminder and personal Claude Project evidence remain required. |
 | Retrospective review draft | [Document](./week-08-retrospective-review-draft.md) | Requires the participant’s authentic first-person revision, hours, and final human review. |
 | Manual evidence and portal checklist | [Document](./week-08-manual-evidence-and-portal-checklist.md) | Exact assignment links, current public sources, personal-evidence gaps, and portal-recovery sequence. |
+| Participant evidence-capture kit | [Document](./participant-evidence-capture-kit.md) | Blank, honest templates for real recordings, screenshots, device tests, critique, hours, post, and final review. |
+| Full submission packet | [Document](./submission-packet-copy-paste.md) | Exact form links and public URLs to paste; participant-only fields are explicitly not ready. |
 
 ## Final-checkpoint evidence still required
 

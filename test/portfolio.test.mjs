@@ -26,6 +26,8 @@ const proofStatementDraft = await readFile(new URL("../docs/week-01-proof-statem
 const framedCasesDraft = await readFile(new URL("../docs/week-02-framed-cases-review-draft.md", import.meta.url), "utf8");
 const promptLadderDraft = await readFile(new URL("../docs/week-02-prompt-ladder-review-draft.md", import.meta.url), "utf8");
 const identityKitDraft = await readFile(new URL("../docs/week-03-identity-kit-review-draft.md", import.meta.url), "utf8");
+const participantEvidenceKit = await readFile(new URL("../docs/participant-evidence-capture-kit.md", import.meta.url), "utf8");
+const submissionPacket = await readFile(new URL("../docs/submission-packet-copy-paste.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -180,4 +182,14 @@ test("Week 1–3 public source drafts preserve review and evidence limits", () =
   assert.match(promptLadderDraft, /Verification requirements/);
   assert.match(identityKitDraft, /not embedded in this public draft/i);
   assert.match(identityKitDraft, /must approve, revise, or reject/i);
+});
+
+test("participant evidence kit and submission packet preserve exact form links and blank-evidence boundaries", () => {
+  assert.match(participantEvidenceKit, /This kit does not create evidence/i);
+  assert.match(participantEvidenceKit, /Do not upload blank templates as if they were completed work/i);
+  assert.match(participantEvidenceKit, /3–5 minute/i);
+  assert.match(submissionPacket, /CUSTOM-MQYD5DXU-19C5C7D4/);
+  assert.match(submissionPacket, /CUSTOM-MQKONMK2-B549E9F4/);
+  assert.match(submissionPacket, /participant evidence required/i);
+  assert.match(submissionPacket, /Nothing is officially submitted unless it appears there/i);
 });
