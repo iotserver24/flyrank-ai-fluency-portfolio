@@ -14,6 +14,8 @@ const nuxtConfig = await readFile(new URL("../nuxt.config.ts", import.meta.url),
 const agentMcpExplainer = await readFile(new URL("../docs/week-04-agent-mcp-explainer-review-draft.md", import.meta.url), "utf8");
 const dnsWalkthrough = await readFile(new URL("../docs/week-05-dns-walkthrough-review-draft.md", import.meta.url), "utf8");
 const nextCasePlan = await readFile(new URL("../docs/week-08-next-case-plan-review-draft.md", import.meta.url), "utf8");
+const deliverablesIndex = await readFile(new URL("../docs/week-08-deliverables-index.md", import.meta.url), "utf8");
+const demoScript = await readFile(new URL("../docs/week-08-capstone-demo-script-review-draft.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -106,4 +108,12 @@ test("Week 8 plan names a concrete next case and preserves real reminder and Cla
   assert.match(nextCasePlan, /Problem[\s\S]*What I did[\s\S]*What came of it/);
   assert.match(nextCasePlan, /Create a genuine calendar\/reminder entry/i);
   assert.match(nextCasePlan, /participant-owned Claude Project/i);
+});
+
+test("Week 8 package index and demo script keep real evidence and video boundaries distinct", () => {
+  assert.match(deliverablesIndex, /flyrank-capstone-metering-billing/);
+  assert.match(deliverablesIndex, /current `\/intern\/submissions` record still contains only BE-01/i);
+  assert.match(demoScript, /Record-it-yourself boundary/);
+  assert.match(demoScript, /integer microcents/i);
+  assert.match(demoScript, /no real Stripe Checkout Session/i);
 });
