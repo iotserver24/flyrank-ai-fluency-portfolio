@@ -14,4 +14,6 @@
 - [ ] Publish the Week 4 three-option stack rationale with free-hosting trade-offs, an honest backend decision, and maintainability review.
 - [ ] Publish a Week 5 plain-words explanation review draft for a real Nuxt static-build and deployment component, without claiming participant understanding or authorship attestation.
 - [ ] Publish a Week 5 personal-agent design specification with a narrow job, realistic public-data access plan, five evaluation cases, and irreversible-action guardrails.
+- [x] Implement and validate the scoped local evidence-scout agent against a real non-secret project path, with a complete build log and explicit raw-screen-capture limitation.
+- [ ] Record an authentic unedited operator screen capture of a successful evidence-scout run, as required for the FL-07 raw-run artifact.
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.

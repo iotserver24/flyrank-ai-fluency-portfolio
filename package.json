@@ -9,6 +9,7 @@
     "preview": "nuxt preview",
     "test": "node --test test/*.test.mjs",
     "check": "nuxi typecheck",
+    "agent:scout": "node scripts/portfolio-evidence-scout.mjs",
     "workflow:local": "node-red --userDir .node-red",
     "workflow:flow": "automation/weekly-repository-brief.node-red.json"
   },

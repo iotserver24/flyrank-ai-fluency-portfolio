@@ -1,0 +1,249 @@
+{
+  "agent": "Portfolio Evidence Scout",
+  "mode": "deterministic, read-only source inventory — not a live LLM result",
+  "reviewedRoot": "/home/ubuntu/flyrank-capstone-metering-billing",
+  "sourceFiles": [
+    "README.md",
+    "EVIDENCE.md",
+    "BUILDLOG.md",
+    "todo.md",
+    "package.json",
+    "test/capstone.test.js"
+  ],
+  "evidenceSnippets": [
+    {
+      "path": "README.md",
+      "line": 3,
+      "text": "This repository implements a small, tenant-scoped backend service for **usage metering, quota enforcement, and billing-state synchronization**. It records simulated API and AI-token usage transactionally, calculates money in integer microcents, protects tenant reads and writes with a local demo tenant key, verifies signed Stripe webhook payloads before processing them, and runs reconciliation through a retried Inngest function.",
+      "classification": "source_context"
+    },
+    {
+      "path": "README.md",
+      "line": 5,
+      "text": "The implementation is deliberately narrow. It is a locally reproducible capstone artifact, not a hosted billing product. The design rationale is in [DESIGN.md](./DESIGN.md), concrete execution proof is in [EVIDENCE.md](./EVIDENCE.md), and the engineering/AI-assistance record is in [BUILDLOG.md](./BUILDLOG.md).",
+      "classification": "source_context"
+    },
+    {
+      "path": "README.md",
+      "line": 7,
+      "text": "> **Important boundary:** The Stripe adapter and signed-webhook fixtures are implemented and tested, but no participant-owned Stripe test-mode credentials, Checkout Session, Stripe CLI forwarding session, or live provider webhook has been configured or claimed.",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "README.md",
+      "line": 18,
+      "text": "S[Stripe test mode\\nwhen privately configured] -->|raw signed webhook| W[/webhooks/stripe]",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "README.md",
+      "line": 21,
+      "text": "I[Inngest local gateway] -->|billing/reconcile.requested| F[Retried reconciliation function]",
+      "classification": "source_context"
+    },
+    {
+      "path": "README.md",
+      "line": 26,
+      "text": "The primary data boundary is SQLite. The migration creates plans, tenants, subscriptions, usage events, processed webhooks, reconciliation runs, and alerts. The `(tenant_id, idempotency_key)` uniqueness constraint works together with the transactional metering flow to prevent a retry from creating an additional chargeable usage event.",
+      "classification": "source_context"
+    },
+    {
+      "path": "README.md",
+      "line": 30,
+      "text": "| Concern | Implemented control | Scope and limitation |",
+      "classification": "needs_owner_confirmation"
+    },
+    {
+      "path": "README.md",
+      "line": 32,
+      "text": "| Tenant isolation | Every tenant-scoped HTTP route requires `X-Tenant-Key`; keys are SHA-256 hashed in the seeded store and compared using a timing-safe comparison. | This is a **local demonstration credential boundary**, not a replacement for production identity, key rotation, rate limits, or a secrets manager. |",
+      "classification": "source_context"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "line": 1,
+      "text": "# Evidence",
+      "classification": "source_context"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "line": 3,
+      "text": "This record separates **verified local evidence** from work that requires a participant-owned third-party account. It does not treat deterministic fixtures as a live payment-provider integration.",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "line": 7,
+      "text": "| Requirement | Verified evidence | Honest status |",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "line": 9,
+      "text": "| Exactly-once usage metering | The acceptance suite includes an idempotency replay test. In the live local API run, the first boundary request returned one event ID with `replayed: false`; the identical request returned the same event ID with `replayed: true`. | Verified locally. |",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "line": 10,
+      "text": "| Exact quota behavior | The seeded Free plan accepted exactly 3 API calls, then rejected a new one-call request with `429 QUOTA_EXCEEDED` and `Retry-After: 2592000`. | Verified locally. |",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "line": 11,
+      "text": "| Subscription gate | The acceptance suite changes a subscription to inactive and verifies `402 PAYMENT_REQUIRED` without a usage write. | Verified by deterministic test. |",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "line": 12,
+      "text": "| Integer prices and rollups | Acceptance tests pin cached-input discounting and charge reasoning at the output rate. The live boundary event returned `cost_microcents: 6000000`, and the usage rollup reported the same integer total. | Verified locally. |",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "line": 13,
+      "text": "| Tenant isolation | The HTTP test suite covers tenant-key isolation. A live request with `local-other-key` for `tenant_demo` returned `403 TENANT_ACCESS_DENIED`; an omitted key returned `401 TENANT_KEY_REQUIRED`. | Verified locally. |",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "BUILDLOG.md",
+      "line": 5,
+      "text": "AI assistance helped transform the FlyRank capstone brief into the initial data model, endpoint contract, test plan, and documentation scaffold. The design was checked against the brief’s required idempotency, quota, integer-money, webhook, background-job, and evidence requirements.",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "BUILDLOG.md",
+      "line": 7,
+      "text": "The main human-owned engineering decisions preserved here are: keep the core intentionally small; use SQLite rather than pretending Docker is available; make the default billable action meter simulated token counts; and document Stripe test-mode work as unconfigured until a participant-owned credential exists. No provider credential, Stripe checkout, or real payment has been claimed or used in this session.",
+      "classification": "needs_owner_confirmation"
+    },
+    {
+      "path": "BUILDLOG.md",
+      "line": 11,
+      "text": "AI assistance was used to implement the migration, Express boundary, transactional meter, integer pricing, webhook adapter, reconciliation function, deterministic acceptance tests, and repository documentation. The implementation was revised after tenant-isolation review: the tenant-scoped API endpoints now require `X-Tenant-Key`, compare its SHA-256 hash with the persisted tenant record, and reject missing or cross-tenant keys before reading or recording usage.",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "BUILDLOG.md",
+      "line": 13,
+      "text": "The local run was restarted from a freshly seeded database after that hardening change. The verified local run accepted the three-call Free-plan boundary, replayed an identical idempotency key without a second event, rejected a fourth call with `429`, rejected missing and incorrect tenant credentials, and returned the intended `503` Stripe configuration boundary. These are local results, not hosted service claims.",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "BUILDLOG.md",
+      "line": 15,
+      "text": "AI assistance also identified that the SDK package did not include the local Inngest gateway executable. The reproducible development dependency `inngest-cli` was added, then the gateway was run against the active local API endpoint. One reconciliation event completed successfully. A separately flagged `simulateFailure` event retried under the configured `retries: 2`, produced three persisted failure attempts, and ended `FAILED`; each attempt recorded an alert row by the current implementation. This is explicit behavior, not an assertion that a production alerting channel exists.",
+      "classification": "source_context"
+    },
+    {
+      "path": "BUILDLOG.md",
+      "line": 17,
+      "text": "No personal credentials, payment credentials, external-account evidence, or false provenance has been added. The remaining real Stripe Checkout/webhook walkthrough requires private configuration by the participant and is intentionally left unclaimed.",
+      "classification": "source_context"
+    },
+    {
+      "path": "todo.md",
+      "line": 3,
+      "text": "- [x] Create dedicated public repository scaffolding, the design document, evaluator manifest, evidence log, and AI build log.",
+      "classification": "source_context"
+    },
+    {
+      "path": "todo.md",
+      "line": 6,
+      "text": "- [x] Implement integer API and AI-token cost calculation with pinned pricing tests.",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "todo.md",
+      "line": 7,
+      "text": "- [x] Implement the Stripe test-mode adapter, signed raw-body webhook handler, and replay suppression using deterministic fixtures.",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "todo.md",
+      "line": 8,
+      "text": "- [x] Implement a retried Inngest reconciliation job and failure-recording boundary.",
+      "classification": "source_context"
+    },
+    {
+      "path": "todo.md",
+      "line": 9,
+      "text": "- [x] Add acceptance tests, live local evidence, architecture diagram, setup instructions, and limitations.",
+      "classification": "needs_owner_confirmation"
+    },
+    {
+      "path": "todo.md",
+      "line": 11,
+      "text": "- [ ] Privately configure Stripe test-mode credentials and complete a real Checkout Session plus externally delivered signed webhook test, if strict provider end-to-end evidence is required.",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "package.json",
+      "line": 11,
+      "text": "\"test\": \"node --test\",",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "package.json",
+      "line": 13,
+      "text": "\"inngest:dev\": \"inngest dev -u ${INNGEST_SERVE_URL:-http://localhost:3000/api/inngest}\"",
+      "classification": "source_context"
+    },
+    {
+      "path": "test/capstone.test.js",
+      "line": 2,
+      "text": "import test from \"node:test\";",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "test/capstone.test.js",
+      "line": 6,
+      "text": "import { makeStripeTestSignature, processStripeEvent, verifyStripeEvent } from \"../src/stripe-service.js\";",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "test/capstone.test.js",
+      "line": 28,
+      "text": "test(\"same tenant and idempotency key records exactly one usage event\", () => {",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "test/capstone.test.js",
+      "line": 39,
+      "text": "test(\"quota allows the exact boundary and rejects the request after it with 429\", () => {",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "test/capstone.test.js",
+      "line": 46,
+      "text": "test(\"inactive subscription returns 402 before usage is written\", () => {",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "test/capstone.test.js",
+      "line": 53,
+      "text": "test(\"pinned price rules bill cached input lower and reasoning as output\", () => {",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "test/capstone.test.js",
+      "line": 59,
+      "text": "test(\"valid signed checkout webhook upgrades once and a duplicate is ignored\", () => {",
+      "classification": "source_mentions_local_evidence"
+    },
+    {
+      "path": "test/capstone.test.js",
+      "line": 63,
+      "text": "const event = verifyStripeEvent(payload, makeStripeTestSignature(payload, secret), secret);",
+      "classification": "source_mentions_local_evidence"
+    }
+  ],
+  "protectedFilePolicy": "Only named documentation, package, test, and evidence files are read. Environment, credential, token, password, and key files are excluded.",
+  "nextHumanChecks": [
+    "Open each cited source before reusing its language in a public portfolio or portal form.",
+    "Confirm whether any external provider, deployment, payment, or webhook claim has real evidence beyond local tests or fixtures.",
+    "Approve any wording before publishing or submitting; this agent has no write, publish, deployment, payment, or account action."
+  ]
+}
