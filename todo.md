@@ -19,4 +19,5 @@
 - [ ] Document and verify the existing single project-filter interaction as the Week 6 live feature, including its static-browser data flow and real free-tier hosting evidence.
 - [x] Run and publish a Week 7 site hardening audit with metadata checks, repository-link checks, fix-now versus known-limitation triage, and a disclosed missing human hardening review.
 - [ ] Publish a technically sourced Week 4 workflow-versus-agent and MCP explainer draft while keeping the required participant MCP-tool screenshots unclaimed.
+- [ ] Publish a technically sourced DNS walkthrough for the live GitHub Pages portfolio while preserving the outstanding participant-only LinkedIn/CV, booking-link, and future FlyRank badge requirements.
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.

@@ -12,6 +12,7 @@ const projectFilterFeature = await readFile(new URL("../docs/week-06-project-fil
 const hardeningAudit = await readFile(new URL("../docs/week-07-hardening-audit.md", import.meta.url), "utf8");
 const nuxtConfig = await readFile(new URL("../nuxt.config.ts", import.meta.url), "utf8");
 const agentMcpExplainer = await readFile(new URL("../docs/week-04-agent-mcp-explainer-review-draft.md", import.meta.url), "utf8");
+const dnsWalkthrough = await readFile(new URL("../docs/week-05-dns-walkthrough-review-draft.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -89,4 +90,12 @@ test("Week 4 explainer accurately distinguishes a fixed workflow from an agent a
   assert.match(agentMcpExplainer, /is a \*\*workflow\*\*, not an agent/i);
   assert.match(agentMcpExplainer, /Required participant MCP evidence/);
   assert.match(agentMcpExplainer, /cannot be recreated from this study draft/i);
+});
+
+test("Week 5 DNS walkthrough explains resolution and CNAMEs while preserving personal launch boundaries", () => {
+  assert.match(dnsWalkthrough, /DNS is the internet’s address book/i);
+  assert.match(dnsWalkthrough, /CNAME record makes one domain name an alias/i);
+  assert.match(dnsWalkthrough, /iotserver24\.github\.io\/flyrank-ai-fluency-portfolio/);
+  assert.match(dnsWalkthrough, /Remaining personal launch steps/);
+  assert.match(dnsWalkthrough, /official FlyRank completion badge/i);
 });
