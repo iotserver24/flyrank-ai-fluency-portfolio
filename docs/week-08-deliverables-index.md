@@ -22,6 +22,10 @@ This index gathers the published artifacts that can be independently reviewed. I
 | Artifact | Public link | Important boundary |
 | --- | --- | --- |
 | Live portfolio | [GitHub Pages](https://iotserver24.github.io/flyrank-ai-fluency-portfolio/) | Direct HTTPS audit returned `200`; initial browser cache was stale after old-domain removal. |
+| Week 1 proof statement | [Review draft](./week-01-proof-statement-review-draft.md) | Requires participant confirmation of all first-person claims. |
+| Week 2 framed cases | [Review draft](./week-02-framed-cases-review-draft.md) | Public-source case copy; no client outcomes or production claims. |
+| Week 2 prompt ladder | [Review draft](./week-02-prompt-ladder-review-draft.md) | Not participant-owned tool output or provider-run evidence. |
+| Week 3 identity kit | [Review draft](./week-03-identity-kit-review-draft.md) | Design proposal; personal visual selection and mark publication remain required. |
 | Content and CTA map | [Document](./week-03-content-map.md) | Source map, not personal proof of audience conversion. |
 | Stack rationale | [Document](./week-04-stack-rationale-review-draft.md) | Requires participant attestation before it represents a personal choice. |
 | Workflow/mCP explainer | [Document](./week-04-agent-mcp-explainer-review-draft.md) | Participant MCP client and three tool-call screenshots remain required. |

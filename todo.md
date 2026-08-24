@@ -21,6 +21,7 @@
 - [ ] Publish a technically sourced Week 4 workflow-versus-agent and MCP explainer draft while keeping the required participant MCP-tool screenshots unclaimed.
 - [ ] Publish a technically sourced DNS walkthrough for the live GitHub Pages portfolio while preserving the outstanding participant-only LinkedIn/CV, booking-link, and future FlyRank badge requirements.
 - [x] Publish a Week 3 image-curation strategy that maps real work captures and makes explicit which personal-photo, generated-asset, and rejection evidence must be provided by the participant.
+- [x] Publish transparent Week 1–3 proof-statement, framed-cases, prompt-ladder, and identity-kit source drafts with participant-review and portal-persistence boundaries.
 - [x] Publish a concrete Week 8 next-case update guide and named next technical artifact while preserving the required real reminder and personal Claude Project context as participant-only evidence.
 - [x] Publish a Week 8 deliverables index and capstone demo-script review draft with documented setup, architecture, tests, limits, and AI-assistance disclosures.
 - [ ] Obtain an authentic 3–5 minute live narrated demo, showcase/build-in-public post, hours log, and final human review required by the final Week 8 checkpoint.

@@ -22,6 +22,10 @@ const workflowGraph = await readFile(new URL("../automation/weekly-repository-br
 const workflowHarness = await readFile(new URL("../scripts/run-local-workflow-source-packets.mjs", import.meta.url), "utf8");
 const workflowRunSummary = JSON.parse(await readFile(new URL("../evidence/automation-runs-success/summary.json", import.meta.url), "utf8"));
 const manualChecklist = await readFile(new URL("../docs/week-08-manual-evidence-and-portal-checklist.md", import.meta.url), "utf8");
+const proofStatementDraft = await readFile(new URL("../docs/week-01-proof-statement-review-draft.md", import.meta.url), "utf8");
+const framedCasesDraft = await readFile(new URL("../docs/week-02-framed-cases-review-draft.md", import.meta.url), "utf8");
+const promptLadderDraft = await readFile(new URL("../docs/week-02-prompt-ladder-review-draft.md", import.meta.url), "utf8");
+const identityKitDraft = await readFile(new URL("../docs/week-03-identity-kit-review-draft.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -164,4 +168,16 @@ test("manual checklist preserves exact portal links, participant-only evidence, 
   assert.match(manualChecklist, /Participant-only/);
   assert.match(manualChecklist, /FlyRank Support/);
   assert.match(manualChecklist, /no other item may be represented as portal-persisted, accepted, or certificate-eligible/i);
+});
+
+test("Week 1–3 public source drafts preserve review and evidence limits", () => {
+  assert.match(proofStatementDraft, /Participant review required/);
+  assert.match(proofStatementDraft, /not evidence that FlyRank accepted/i);
+  assert.match(framedCasesDraft, /not claims of client outcomes/i);
+  assert.match(framedCasesDraft, /provider-quality evaluation/i);
+  assert.match(promptLadderDraft, /not a screenshot series from a participant-owned Claude Project/i);
+  assert.match(promptLadderDraft, /Baseline/);
+  assert.match(promptLadderDraft, /Verification requirements/);
+  assert.match(identityKitDraft, /not embedded in this public draft/i);
+  assert.match(identityKitDraft, /must approve, revise, or reject/i);
 });
