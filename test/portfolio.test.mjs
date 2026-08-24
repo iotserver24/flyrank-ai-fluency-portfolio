@@ -11,6 +11,7 @@ const agentDesign = await readFile(new URL("../docs/week-05-personal-agent-desig
 const projectFilterFeature = await readFile(new URL("../docs/week-06-project-filter-feature-review-draft.md", import.meta.url), "utf8");
 const hardeningAudit = await readFile(new URL("../docs/week-07-hardening-audit.md", import.meta.url), "utf8");
 const nuxtConfig = await readFile(new URL("../nuxt.config.ts", import.meta.url), "utf8");
+const agentMcpExplainer = await readFile(new URL("../docs/week-04-agent-mcp-explainer-review-draft.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -80,4 +81,12 @@ test("Week 7 hardening records metadata fixes and does not erase known review li
   assert.match(hardeningAudit, /Fix-now changes applied/);
   assert.match(hardeningAudit, /No hardening review from a mentor or peer/);
   assert.match(hardeningAudit, /should not be submitted as a completed Week 7 checkpoint/i);
+});
+
+test("Week 4 explainer accurately distinguishes a fixed workflow from an agent and leaves MCP screenshots unclaimed", () => {
+  assert.match(agentMcpExplainer, /workflow.*decided in advance/i);
+  assert.match(agentMcpExplainer, /model.*control over the process/i);
+  assert.match(agentMcpExplainer, /is a \*\*workflow\*\*, not an agent/i);
+  assert.match(agentMcpExplainer, /Required participant MCP evidence/);
+  assert.match(agentMcpExplainer, /cannot be recreated from this study draft/i);
 });
