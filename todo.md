@@ -30,4 +30,4 @@
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.
 - [x] Create participant-ready capture scripts and evidence templates for the remaining real recordings, screenshots, phone tests, critique, hours, post, and final-review requirements.
 - [x] Create an exact per-assignment copy-and-paste submission packet that links only to real published artifacts and labels personal evidence fields as participant-completed only.
-- [ ] Validate and publish the new participant-ready template package without representing any blank template as completed evidence.
+- [x] Validate and publish the new participant-ready template package without representing any blank template as completed evidence.
