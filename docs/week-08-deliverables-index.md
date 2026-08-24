@@ -31,6 +31,8 @@ This index gathers the published artifacts that can be independently reviewed. I
 | Project filter feature | [Document](./week-06-project-filter-feature-review-draft.md) | Participant-run interaction evidence remains required. |
 | Hardening audit | [Document](./week-07-hardening-audit.md) | Human review, device test, and search-index proof remain unclaimed. |
 | Next-case plan | [Document](./week-08-next-case-plan-review-draft.md) | Real reminder and personal Claude Project evidence remain required. |
+| Retrospective review draft | [Document](./week-08-retrospective-review-draft.md) | Requires the participant’s authentic first-person revision, hours, and final human review. |
+| Manual evidence and portal checklist | [Document](./week-08-manual-evidence-and-portal-checklist.md) | Exact assignment links, current public sources, personal-evidence gaps, and portal-recovery sequence. |
 
 ## Final-checkpoint evidence still required
 
@@ -39,3 +41,4 @@ This index gathers the published artifacts that can be independently reviewed. I
 - [ ] A complete, plausible personal hours log entered in the portal.
 - [ ] A completed final review checkpoint with human sign-off.
 - [ ] Portal persistence for the submitted backend/capstone and AI Fluency links. The current `/intern/submissions` record still contains only BE-01.
+- [ ] Follow the per-assignment personal-evidence and portal-recovery sequence in the [manual checklist](./week-08-manual-evidence-and-portal-checklist.md).

@@ -25,4 +25,5 @@
 - [x] Publish a Week 8 deliverables index and capstone demo-script review draft with documented setup, architecture, tests, limits, and AI-assistance disclosures.
 - [ ] Obtain an authentic 3–5 minute live narrated demo, showcase/build-in-public post, hours log, and final human review required by the final Week 8 checkpoint.
 - [x] Publish an evidence-based Week 8 retrospective review draft that the participant must revise into an authentic first-person reflection before final review.
+- [x] Publish an exact Week 8 manual-evidence and portal-recovery checklist with assignment links, current public sources, and participant-only blockers.
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.

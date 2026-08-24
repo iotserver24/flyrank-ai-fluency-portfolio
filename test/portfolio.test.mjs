@@ -21,6 +21,7 @@ const retrospectiveDraft = await readFile(new URL("../docs/week-08-retrospective
 const workflowGraph = await readFile(new URL("../automation/weekly-repository-brief.node-red.json", import.meta.url), "utf8");
 const workflowHarness = await readFile(new URL("../scripts/run-local-workflow-source-packets.mjs", import.meta.url), "utf8");
 const workflowRunSummary = JSON.parse(await readFile(new URL("../evidence/automation-runs-success/summary.json", import.meta.url), "utf8"));
+const manualChecklist = await readFile(new URL("../docs/week-08-manual-evidence-and-portal-checklist.md", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -154,4 +155,13 @@ test("Week 4 source-packet flow has five captured public-source and visual-workf
     assert.equal(result.packet.humanReviewRequired, true);
     assert.match(result.packet.notice, /does not judge quality/i);
   }
+});
+
+test("manual checklist preserves exact portal links, participant-only evidence, and the official BE-01 persistence boundary", () => {
+  assert.match(manualChecklist, /CUSTOM-MQKONMK2-B549E9F4/);
+  assert.match(manualChecklist, /FL-01/);
+  assert.match(manualChecklist, /Only BE-01/i);
+  assert.match(manualChecklist, /Participant-only/);
+  assert.match(manualChecklist, /FlyRank Support/);
+  assert.match(manualChecklist, /no other item may be represented as portal-persisted, accepted, or certificate-eligible/i);
 });
