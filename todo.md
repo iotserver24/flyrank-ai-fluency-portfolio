@@ -6,7 +6,7 @@
 - [x] Add a GitHub Pages workflow and deterministic content tests.
 - [x] Install dependencies and run local tests, type checks, and a production static build.
 - [x] Commit and push the site source to the confirmed public repository.
-- [ ] Enable GitHub Pages and verify the public URL after explicit publication confirmation.
+- [x] Enable GitHub Pages and verify the public URL after explicit publication confirmation.
 - [ ] Build an importable visual no-code research-note workflow with at least three named handoffs.
 - [ ] Run and document five real source-note inputs, including timing, failure points, and required human review.
 - [ ] Validate and publish the Week 4 workflow artifact without claiming a private Claude, NotebookLM, or external-account configuration.
@@ -16,4 +16,5 @@
 - [ ] Publish a Week 5 personal-agent design specification with a narrow job, realistic public-data access plan, five evaluation cases, and irreversible-action guardrails.
 - [x] Implement and validate the scoped local evidence-scout agent against a real non-secret project path, with a complete build log and explicit raw-screen-capture limitation.
 - [ ] Record an authentic unedited operator screen capture of a successful evidence-scout run, as required for the FL-07 raw-run artifact.
+- [ ] Document and verify the existing single project-filter interaction as the Week 6 live feature, including its static-browser data flow and real free-tier hosting evidence.
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.
