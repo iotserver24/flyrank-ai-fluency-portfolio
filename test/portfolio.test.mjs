@@ -9,6 +9,8 @@ const stackRationale = await readFile(new URL("../docs/week-04-stack-rationale-r
 const deploymentExplanation = await readFile(new URL("../docs/week-05-nuxt-deployment-explanation-review-draft.md", import.meta.url), "utf8");
 const agentDesign = await readFile(new URL("../docs/week-05-personal-agent-design-review-draft.md", import.meta.url), "utf8");
 const projectFilterFeature = await readFile(new URL("../docs/week-06-project-filter-feature-review-draft.md", import.meta.url), "utf8");
+const hardeningAudit = await readFile(new URL("../docs/week-07-hardening-audit.md", import.meta.url), "utf8");
+const nuxtConfig = await readFile(new URL("../nuxt.config.ts", import.meta.url), "utf8");
 
 test("portfolio links to verified public backend repositories", () => {
   for (const repository of [
@@ -69,4 +71,13 @@ test("Week 6 feature draft documents one real browser-side project filter and it
   assert.match(projectFilterFeature, /does not need a backend/i);
   assert.match(projectFilterFeature, /Participant review required/);
   assert.match(page, /activeFilter/);
+});
+
+test("Week 7 hardening records metadata fixes and does not erase known review limits", () => {
+  assert.match(nuxtConfig, /og:title/);
+  assert.match(nuxtConfig, /twitter:card/);
+  assert.match(nuxtConfig, /canonical/);
+  assert.match(hardeningAudit, /Fix-now changes applied/);
+  assert.match(hardeningAudit, /No hardening review from a mentor or peer/);
+  assert.match(hardeningAudit, /should not be submitted as a completed Week 7 checkpoint/i);
 });

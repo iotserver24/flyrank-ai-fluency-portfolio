@@ -10,6 +10,7 @@
     "test": "node --test test/*.test.mjs",
     "check": "nuxi typecheck",
     "agent:scout": "node scripts/portfolio-evidence-scout.mjs",
+    "site:audit": "node scripts/site-hardening-audit.mjs",
     "workflow:local": "node-red --userDir .node-red",
     "workflow:flow": "automation/weekly-repository-brief.node-red.json"
   },

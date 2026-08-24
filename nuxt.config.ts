@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
   ssr: true,
+  compatibilityDate: "2026-08-24",
   devtools: { enabled: false },
   css: ["~/assets/css/main.css"],
   app: {
@@ -11,6 +12,42 @@ export default defineNuxtConfig({
           name: "description",
           content:
             "A focused portfolio of backend engineering and AI workflow projects by Anish Kumar."
+        },
+        {
+          property: "og:title",
+          content: "Anish Kumar — Backend AI Engineering"
+        },
+        {
+          property: "og:description",
+          content:
+            "A focused portfolio of backend engineering and AI workflow projects by Anish Kumar."
+        },
+        {
+          property: "og:type",
+          content: "website"
+        },
+        {
+          property: "og:url",
+          content: "https://iotserver24.github.io/flyrank-ai-fluency-portfolio/"
+        },
+        {
+          name: "twitter:card",
+          content: "summary"
+        },
+        {
+          name: "twitter:title",
+          content: "Anish Kumar — Backend AI Engineering"
+        },
+        {
+          name: "twitter:description",
+          content:
+            "A focused portfolio of backend engineering and AI workflow projects by Anish Kumar."
+        }
+      ],
+      link: [
+        {
+          rel: "canonical",
+          href: "https://iotserver24.github.io/flyrank-ai-fluency-portfolio/"
         }
       ]
     }

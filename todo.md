@@ -17,4 +17,5 @@
 - [x] Implement and validate the scoped local evidence-scout agent against a real non-secret project path, with a complete build log and explicit raw-screen-capture limitation.
 - [ ] Record an authentic unedited operator screen capture of a successful evidence-scout run, as required for the FL-07 raw-run artifact.
 - [ ] Document and verify the existing single project-filter interaction as the Week 6 live feature, including its static-browser data flow and real free-tier hosting evidence.
+- [x] Run and publish a Week 7 site hardening audit with metadata checks, repository-link checks, fix-now versus known-limitation triage, and a disclosed missing human hardening review.
 - [ ] Obtain participant-only second-device proof, Claude Project screenshots, and personal review/critique evidence required by particular weekly briefs.

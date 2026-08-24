@@ -1,0 +1,55 @@
+{
+  "audit": "Portfolio hardening network checks",
+  "executedAt": "2026-08-24T04:16:13.517Z",
+  "mode": "read-only HTTP availability checks; not a speed benchmark, search-index proof, device test, or human review",
+  "checks": [
+    {
+      "url": "https://iotserver24.github.io/flyrank-ai-fluency-portfolio/",
+      "status": 200,
+      "ok": true,
+      "location": null,
+      "elapsedMs": 384
+    },
+    {
+      "url": "https://github.com/iotserver24/flyrank-capstone-metering-billing",
+      "status": 200,
+      "ok": true,
+      "location": null,
+      "elapsedMs": 922
+    },
+    {
+      "url": "https://github.com/iotserver24/flyrank-be-07-llm",
+      "status": 200,
+      "ok": true,
+      "location": null,
+      "elapsedMs": 815
+    },
+    {
+      "url": "https://github.com/iotserver24/flyrank-be-08-pdf-reports",
+      "status": 200,
+      "ok": true,
+      "location": null,
+      "elapsedMs": 1053
+    },
+    {
+      "url": "https://github.com/iotserver24/flyrank-be09-decision-flow",
+      "status": 200,
+      "ok": true,
+      "location": null,
+      "elapsedMs": 790
+    },
+    {
+      "url": "https://github.com/iotserver24/flyrank-be-06-background-job",
+      "status": 200,
+      "ok": true,
+      "location": null,
+      "elapsedMs": 1020
+    }
+  ],
+  "knownLimitations": [
+    "The portfolio deliberately has no form, data capture, or duplicate-submission path to test.",
+    "No independent device/browser matrix or human hardening review is included in this automated audit.",
+    "Search indexing and social-card rendering depend on external crawlers and were not claimed from this check.",
+    "An OG image is not provided; text social metadata is present."
+  ]
+}
